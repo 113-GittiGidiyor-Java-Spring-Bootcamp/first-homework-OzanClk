@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Student {
@@ -78,5 +79,30 @@ public class Student {
 
     public void setCourseList(List<Course> courseList) {
         this.courseList = courseList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id && Objects.equals(name, student.name) && Objects.equals(birthDate, student.birthDate) && Objects.equals(address, student.address) && Objects.equals(gender, student.gender) && Objects.equals(courseList, student.courseList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, birthDate, address, gender, courseList);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthDate=" + birthDate +
+                ", address='" + address + '\'' +
+                ", gender='" + gender + '\'' +
+                ", courseList=" + courseList +
+                '}';
     }
 }
