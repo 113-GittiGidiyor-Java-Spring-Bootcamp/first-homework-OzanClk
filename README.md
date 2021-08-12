@@ -3,6 +3,6 @@
 # Class Diagram
 Homework01 için oluşturulan senaryoya ait sınıf diyagramı.
 
-![Class-Diagram](https://user-images.githubusercontent.com/67712162/129162968-1835b0a5-cedc-4356-b025-101db5ff6c33.JPG)
+![ClassDiagram](https://user-images.githubusercontent.com/67712162/129169238-04fcfcfa-af98-43e7-bd49-b2ca6931e14b.JPG)
 
 
