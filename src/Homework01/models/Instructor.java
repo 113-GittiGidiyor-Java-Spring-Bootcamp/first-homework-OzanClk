@@ -15,13 +15,13 @@ public class Instructor {
     private String phoneNumber;
 
     @OneToMany(mappedBy = "instructor")
-    private List<Course> courseList;
+    private List<Course> instructorCourseList;
 
     public Instructor(String instructorName, String address, String phoneNumber, List<Course> courseList) {
         this.instructorName = instructorName;
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.courseList = courseList;
+        this.instructorCourseList = courseList;
     }
 
     public Instructor() {
@@ -60,10 +60,10 @@ public class Instructor {
     }
 
     public List<Course> getCourseList() {
-        return courseList;
+        return instructorCourseList;
     }
 
     public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
+        this.instructorCourseList = courseList;
     }
 }

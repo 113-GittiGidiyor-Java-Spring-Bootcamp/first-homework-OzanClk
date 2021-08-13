@@ -2,13 +2,12 @@ package Homework01.service;
 
 import Homework01.models.Student;
 import Homework01.repository.CrudRepository;
-import Homework01.repository.StudentRepository;
 import Homework01.util.EntityManagerUtils;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class StudentService implements CrudRepository<Student>, StudentRepository {
+public class StudentService implements CrudRepository<Student> {
 
     EntityManager em = EntityManagerUtils.getEntityManager("mysqlPU");
 
@@ -77,13 +76,22 @@ public class StudentService implements CrudRepository<Student>, StudentRepositor
     }
 
     @Override
-    public void updateOnDatabase(Student object, int id) {
+    public void updateOnDatabase(Student reqStudent, int id) {
+
+        try {
+            em.getTransaction().begin();
+
+            Student student = em.find(Student.class, id);
+            student.setName(reqStudent.getName());
+            em.merge(student);
+
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        } finally {
+            EntityManagerUtils.closeEntityManager(em);
+        }
 
     }
 
-
-    @Override
-    public void deleteCustomerFromDatabase(long ssid) {
-
-    }
 }

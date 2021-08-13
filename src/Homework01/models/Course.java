@@ -18,7 +18,7 @@ public class Course {
     @ManyToOne
     private Instructor instructor;
 
-    @ManyToMany(mappedBy = "courseList")
+    @ManyToMany(mappedBy = "studentCourseList")
     private List<Student> studentList;
 
 

@@ -18,7 +18,7 @@ public class Student {
     private String gender;
 
     @ManyToMany
-    private List<Course> courseList;
+    private List<Course> studentCourseList;
 
     public Student(String name, LocalDate birthDate, String address, String gender, List<Course> courseList) {
 
@@ -26,7 +26,7 @@ public class Student {
         this.birthDate = birthDate;
         this.address = address;
         this.gender = gender;
-        this.courseList = courseList;
+        this.studentCourseList = courseList;
     }
 
     public Student() {
@@ -74,11 +74,11 @@ public class Student {
     }
 
     public List<Course> getCourseList() {
-        return courseList;
+        return studentCourseList;
     }
 
     public void setCourseList(List<Course> courseList) {
-        this.courseList = courseList;
+        this.studentCourseList = courseList;
     }
 
     @Override
@@ -86,12 +86,12 @@ public class Student {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return id == student.id && Objects.equals(name, student.name) && Objects.equals(birthDate, student.birthDate) && Objects.equals(address, student.address) && Objects.equals(gender, student.gender) && Objects.equals(courseList, student.courseList);
+        return id == student.id && Objects.equals(name, student.name) && Objects.equals(birthDate, student.birthDate) && Objects.equals(address, student.address) && Objects.equals(gender, student.gender) && Objects.equals(studentCourseList, student.studentCourseList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, birthDate, address, gender, courseList);
+        return Objects.hash(id, name, birthDate, address, gender, studentCourseList);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class Student {
                 ", birthDate=" + birthDate +
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
-                ", courseList=" + courseList +
+                ", courseList=" + studentCourseList +
                 '}';
     }
 }
